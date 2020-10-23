@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { categoryByIdsReducer } from '../../../store/reducers/category-by-ids-reducer';
 import Category from '../../commonComponents/Category';
+import Header from './Header';
 
 const mapStateToProps = (state, ) => ({
     categories_ids: state.categories_options.categories_ids,
@@ -23,31 +25,31 @@ class Portal extends Component {
         
     }
 
-    handleChange =(event)=>{
+    getSelected =(value)=>{
 
         let state = { ...{}, ...this.state };
-
-        if(event.target.type === 'file'){
-
-            state[event.target.name] = this.getFileIfAny(event.target.files); 
-            this.setState(state);
-        }else{
-            state[event.target.name] = event.target.value;
-        }
+        state.isAnySelected = value;
+        this.setState(state)
     }
 
     render() {
 
-        const { user } = this.state;
         const { categories_ids, categories_by_ids } = this.props;
+
          return (
-            <div className="container-fluid">
-                <div className="row" >
+            <div className="container-fluid ">
+                <Header />
+                <div className="row m-auto" >
                     <div className="col-md-6" >
-                        {categories_ids.map((id, i)=>(<Category useCheckbox={true} key={id} category={categories_by_ids[id]} index ={i} />))}
+                        <div className="card float-right shadow p-3  bg-light rounded" >
+                            {categories_ids.map((id, i)=>(<Category useCheckbox={true} key={id} category={categories_by_ids[id]} index ={i} />))}
+                        </div>
                     </div>
-                    <div className="col-md-6" >
-                        {categories_ids.map((id, i)=>(<Category useCheckbox={false} key={id} category={categories_by_ids[id]} index ={i} />))}
+                    <div className="col-md-6 " >
+                        <div className="card float-left shadow p-3  bg-light rounded" >
+                            {categories_ids.map((id, i)=>(<Category getSelected={this.getSelected} useCheckbox={false} key={id} category={categories_by_ids[id]} index ={i} />))}
+                            { !this.state.isAnySelected ? <div style={{ margin: '0px auto' }}> No Value Selected </div> : null }
+                        </div>
                     </div>
                 </div>
                 

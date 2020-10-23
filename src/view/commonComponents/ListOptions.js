@@ -7,7 +7,7 @@ export default class ListOption extends Component {
         const { option, deleteOption } = this.props;
         return (
             <>
-                <li className="list-group-item">{option.name} 
+                <li className="list-group-item m-2" style={{ backgroundColor:"#e4e4e4" }}>{option.name} 
                 <button type="button" onClick={()=>deleteOption()} className="close" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button></li>
