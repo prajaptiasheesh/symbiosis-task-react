@@ -13,10 +13,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   
 
 class Category extends Component {
-    
-    constructor(props){
-        super(props);
-    }
+
 
     handleChange =(event, id)=>{
 
@@ -55,7 +52,7 @@ class Category extends Component {
 
     render() {
 
-        const { category, index, options_by_ids, useCheckbox } = this.props
+        const { category, options_by_ids, useCheckbox } = this.props
         return (
             <div  style={{ backgroundColor:'#ffff' }} >
                { this.isAnyOneSelected() && !useCheckbox ? <h5> { category.name} </h5>  : null}

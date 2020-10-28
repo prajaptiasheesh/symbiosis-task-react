@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { categoryByIdsReducer } from '../../../store/reducers/category-by-ids-reducer';
 import Category from '../../commonComponents/Category';
 import Header from './Header';
 

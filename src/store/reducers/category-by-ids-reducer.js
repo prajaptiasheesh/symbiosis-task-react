@@ -20,7 +20,7 @@ export const categoryByIdsReducer= (state={},action={})=>{
 
         case ACTIONS.CATEGORY.CATEGORY_DELETE:{
 
-            let {  result } = action.payload;
+            
             
             let newState = {...{}, ...state}
 

@@ -20,7 +20,7 @@ export const optionsByIdsReducer= (state={},action={})=>{
 
         case ACTIONS.OPTIONS_BY_ID.OPTIONS_BY_ID_DELETE:{
 
-            let {  result } = action.payload;
+        
             
             let newState = {...{}, ...state}
 
@@ -34,7 +34,7 @@ export const optionsByIdsReducer= (state={},action={})=>{
         }
         case ACTIONS.OPTIONS_BY_ID.OPTIONS_BY_ID_EDIT:{
 
-            let {  result } = action.payload;
+            
             
             let newState = {...{}, ...state}
 
