@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Category from '../../commonComponents/Category';
 import Header from './Header';
+import Modal from '../../shared/Modal';
 
 const mapStateToProps = (state, ) => ({
     categories_ids: state.categories_options.categories_ids,
@@ -14,7 +15,8 @@ class Portal extends Component {
     constructor(props){
         super(props);
         this.state = {
-            user: null
+            user: null,
+            isModalOpen: false
         }
     }
     
@@ -22,6 +24,10 @@ class Portal extends Component {
     componentDidMount(){
 
         
+    }
+
+    toggleModal = ()=>{
+        this.setState({ isModalOpen: !this.state.isModalOpen })
     }
 
     getSelected =(value)=>{
@@ -35,6 +41,8 @@ class Portal extends Component {
 
         const { categories_ids, categories_by_ids } = this.props;
 
+        const toggleBtn =  <button onClick={this.toggleModal} > {this.state.isModalOpen ? 'close': 'open'}  </button>
+                
          return (
             <div className="container-fluid ">
                 <Header />
@@ -51,6 +59,33 @@ class Portal extends Component {
                         </div>
                     </div>
                 </div>
+                {toggleBtn}
+               { this.state.isModalOpen ? 
+               <Modal
+                    titleText={"Confirm modal"}
+                    titleId={'confirmModal'}
+                    escapeExits={true}
+                    underlayClickExits={true}
+                    onExit={this.toggleModal}
+                    focusDialog={true}
+                    verticallyCenter={false}
+                    scrollDisabled={false}
+                    dialogStyle={{
+                        height: '269px',
+                        marginTop: "12%",
+                        width: "30%",
+                        overflowY: "scroll",
+                        scrollBehavior: "auto",
+                        backgroundColor: 'whitesmoke'
+                    }}
+                >
+                    <div  >
+                            
+                                <h5 className="card-title">Special title treatment</h5>
+                                <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a onClick={this.toggleModal} href="#" className="btn btn-primary">Close</a>
+                    </div>
+               </Modal> : null }
                 
             </div>
         );

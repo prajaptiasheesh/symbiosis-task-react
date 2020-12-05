@@ -1,5 +1,5 @@
 {
-  "name": "meenu-mam",
+  "name": "react-components",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,13 +8,16 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
+    "focus-trap-react": "^8.3.2",
     "formik": "^2.1.7",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
     "material-icons": "^0.3.1",
     "moment": "^2.29.1",
+    "no-scroll": "^2.1.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
+    "react-displace": "^2.3.0",
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.2.4",
     "react-loading": "^2.0.3",
