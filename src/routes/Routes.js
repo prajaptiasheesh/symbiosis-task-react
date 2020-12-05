@@ -12,6 +12,7 @@ export default class Routes extends Component {
             <Switch>
                 <Route exact={true} path="/" component={Portal} />
                 <Route exact path="/step-forms" component={StepForms} />
+                {/* in case if no routes found from above one's */}
                 <Route path="*" render={() => <h1>Page not found</h1>} />
             </Switch>
         )
